@@ -1,0 +1,2 @@
+2023-08-05 14:37:53.769 JST [25943] FATAL:  lock file "postmaster.pid" already exists
+2023-08-05 14:37:53.769 JST [25943] HINT:  Is another postmaster (PID 23873) running in data directory "/usr/local/var/postgres"?
