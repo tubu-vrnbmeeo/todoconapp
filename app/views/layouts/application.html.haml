@@ -11,14 +11,13 @@
     %link{href: "https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css", rel: "stylesheet"}
   %body
     %header.header
-      .container
-        %p.header-home
-          = link_to 'Boards', root_path
-        .header-account
-          = image_tag 'default-avatar.png', class: 'header-avatar dropbtn'
+      %p.header_home
+        = link_to 'Boards', root_path
+      -# .header-account
+      -#   = image_tag 'default-avatar.png', class: 'header-avatar dropbtn'
 
 
 
-          %p.notice= notice
-          %p.alert= alert
+      -#   %p.notice= notice
+      -#   %p.alert= alert
     = yield
