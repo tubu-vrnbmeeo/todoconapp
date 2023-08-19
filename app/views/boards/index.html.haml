@@ -1,0 +1,17 @@
+.container
+  %h2.title All Boards
+  - @boards.each do |board|
+    = link_to board_path(board) do
+      .board
+        .board-name
+          = board.name
+        .dropdown
+          = image_tag 'Combined Shape.png', class: 'dropbtn'
+
+        .board-description
+          = board.description
+
+        = image_tag 'Users.png', class: 'board-avatar'
+
+  .new-board
+    %p.new-board-add + Add new board
