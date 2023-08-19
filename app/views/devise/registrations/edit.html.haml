@@ -30,7 +30,7 @@
       %br/
       = f.password_field :current_password, autocomplete: "current-password", class: 'text'
     .actions
-      = f.submit "Update", class: 'btn_primary'
+      = f.submit "Update", class: 'btn-primary'
   %h3 Cancel my account
   %div
     Unhappy? #{button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete}
