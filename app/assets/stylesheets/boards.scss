@@ -47,8 +47,8 @@ $board-br: 6px;
 
   &-add {
     line-height: $board-ht;
+    display: block;
     text-align: center;
-    vertical-align: middle;
   }
 
 }
