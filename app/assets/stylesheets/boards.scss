@@ -4,8 +4,7 @@ $board-ht: 161px;
 $board-br: 6px;
 
 .board {
-  position: relative;
-  padding: 32px 52px 0 17px;
+  padding: 32px 16px 20px 17px;
   height: $board-ht;
   border-radius: $board-br;
   background-color: $form-color;
@@ -14,30 +13,25 @@ $board-br: 6px;
   &-name {
     font-size: $font-lg;
     margin-bottom: 6px;
+    float: left;
+  }
+
+  &-actions:after {
+    content:"";
+    display: block;
+    clear: both;
   }
 
   &-description {
     font-size: $font-sm;
     opacity: 0.4;
+    margin-bottom: 30px;
   }
 
-}
-
-.dropdown {
-  position: absolute;
-  right: 16px;
-  top: 39px;
-  width: 24px;
-  height: 6px;
-}
-
-.board-avatar {
-  position: absolute;
-  left: 20px;
-  bottom: 20px;
-  height: 30px;
-  width: 30px;
-
+  &-avatar {
+    height: 30px;
+    width: 30px;
+  }
 }
 
 .new-board {
