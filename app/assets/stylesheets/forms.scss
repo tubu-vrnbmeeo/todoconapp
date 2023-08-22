@@ -11,8 +11,15 @@
   &_pw1 {
     margin-bottom: 16px;
   }
+
+  &-area {
+    padding: 8px 8px;
+    min-height: 200px;
+    resize: vertical;
+  }
 }
 
 .label {
+  display: block;
   margin-bottom: $label-mb;
 }

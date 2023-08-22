@@ -13,5 +13,6 @@
 
         = image_tag 'Users.png', class: 'board-avatar'
 
-  .new-board
-    %p.new-board-add + Add new board
+  = link_to new_board_path do
+    .new-board
+      %p.new-board-add + Add new board
