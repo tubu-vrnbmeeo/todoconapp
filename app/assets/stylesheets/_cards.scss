@@ -19,6 +19,10 @@ $card-br: 6px;
     border-radius: $card-br;
   }
 
+  &-image-task img {
+    width: 100%;
+  }
+
   &-name {
     font-size: $font-lg;
     margin-bottom: 6px;
