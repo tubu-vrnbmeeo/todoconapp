@@ -1,5 +1,9 @@
 = form_with(model: model, url: board_tasks_path(model.board), local: true) do |f|
   %div
+    = f.label :eyecatch, 'アイキャッチ'
+  %div 
+    = f.file_field :eyecatch
+  %div
     = f.label :name, 'Name', class: 'label'
   %div
     = f.text_field :name, class: 'text'

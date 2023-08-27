@@ -5,10 +5,18 @@ $card-br: 6px;
 
 .card {
   padding: 32px 16px 20px 17px;
-  height: $card-ht;
   border-radius: $card-br;
   background-color: $form-color;
   margin-bottom: 26px;
+
+  &-image img {
+    display: block;
+    width: 98%;
+    height: 170px;
+    object-fit: cover;
+    margin: auto;
+    margin-bottom: 26px;
+  }
 
   &-name {
     font-size: $font-lg;
@@ -34,6 +42,30 @@ $card-br: 6px;
   &-avatar {
     height: 30px;
     width: 30px;
+    float: left;
+  }
+
+  &-comments {
+    float: right;
+    display: flex;
+    height: 30px;
+    padding: 10px 0 0 0;
+    
+    &-number {
+      font-size: $font-sm;
+      color: rgba(0, 0, 0, 0.2);
+    }
+
+    &-image {
+      height: 20px;
+      width: 20px;
+    }
+  }
+
+  &-after {
+    content:"";
+    display: block;
+    clear: both;
   }
 }
 
