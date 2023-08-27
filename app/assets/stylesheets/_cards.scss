@@ -16,6 +16,7 @@ $card-br: 6px;
     object-fit: cover;
     margin: auto;
     margin-bottom: 26px;
+    border-radius: $card-br;
   }
 
   &-name {

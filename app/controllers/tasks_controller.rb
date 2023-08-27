@@ -1,12 +1,16 @@
 class TasksController < ApplicationController
+  before_action :set_board, only: [:show, :new, :create]
+
+  def show
+    @task = @board.tasks.find(params[:id])
+  end
+
   def new
-    board = Board.find(params[:board_id])
-    @task = board.tasks.build
+    @task = @board.tasks.build
   end
 
   def create
-    board = Board.find(params[:board_id])
-    @task = board.tasks.build(task_params)
+    @task = @board.tasks.build(task_params)
     if @task.save
       redirect_to board_path(board), notice: 'Task added'
     else
@@ -18,5 +22,9 @@ class TasksController < ApplicationController
   private
   def task_params
     params.require(:task).permit(:name, :description, :eyecatch)
+  end
+
+  def set_board
+    @board = Board.find(params[:board_id])
   end
 end
