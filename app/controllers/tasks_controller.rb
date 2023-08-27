@@ -1,9 +1,4 @@
 class TasksController < ApplicationController
-  def index
-    board = Board.find(params[:board_id])
-    @tasks = board.tasks
-  end
-
   def new
     board = Board.find(params[:board_id])
     @task = board.tasks.build
@@ -22,6 +17,6 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description)
+    params.require(:task).permit(:name, :description, :eyecatch)
   end
 end

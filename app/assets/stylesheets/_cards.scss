@@ -1,12 +1,12 @@
 @import 'variables';
 
-$board-ht: 161px;
-$board-br: 6px;
+$card-ht: 161px;
+$card-br: 6px;
 
-.board {
+.card {
   padding: 32px 16px 20px 17px;
-  height: $board-ht;
-  border-radius: $board-br;
+  height: $card-ht;
+  border-radius: $card-br;
   background-color: $form-color;
   margin-bottom: 26px;
 
@@ -14,6 +14,9 @@ $board-br: 6px;
     font-size: $font-lg;
     margin-bottom: 6px;
     float: left;
+    &-task {
+      float: none;
+    }
   }
 
   &-actions:after {
@@ -34,13 +37,13 @@ $board-br: 6px;
   }
 }
 
-.new-board {
-  height: $board-ht;
+.new-card {
+  height: $card-ht;
   border: 1px dashed rgba(0, 0, 0, 0.2);
-  border-radius: $board-br;
+  border-radius: $card-br;
 
   &-add {
-    line-height: $board-ht;
+    line-height: $card-ht;
     display: block;
     text-align: center;
   }
