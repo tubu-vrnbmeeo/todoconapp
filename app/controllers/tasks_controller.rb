@@ -1,8 +1,8 @@
 class TasksController < ApplicationController
-  before_action :set_board, only: [:show, :new, :create]
+  before_action :set_board, only: [:show, :new, :create, :edit, :update, :destroy]
+  before_action :set_task, only: [:show, :edit, :update]
 
   def show
-    @task = @board.tasks.find(params[:id])
   end
 
   def new
@@ -19,6 +19,17 @@ class TasksController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    
+  end
+
+  def destroy
+
+  end
+
   private
   def task_params
     params.require(:task).permit(:name, :description, :eyecatch)
@@ -26,5 +37,9 @@ class TasksController < ApplicationController
 
   def set_board
     @board = Board.find(params[:board_id])
+  end
+
+  def set_task
+    @task = @board.tasks.find(params[:id])
   end
 end
