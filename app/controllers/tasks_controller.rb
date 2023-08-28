@@ -23,7 +23,12 @@ class TasksController < ApplicationController
   end
 
   def update
-    
+    if @task.update(task_params)
+      redirect_to board_task_path(@task), notice: 'Updated'
+    else
+      flash.now[:error] = 'Not updated'
+      render :edit
+    end
   end
 
   def destroy
