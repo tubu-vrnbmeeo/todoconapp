@@ -1,3 +1,3 @@
 .container
   %h2.title Edit Card
-  = render 'form', model: @task, url: board_task_path(@task)
+  = render 'form', model: @task, url: board_task_path(board_id: @task.board.id, id: @task.id)

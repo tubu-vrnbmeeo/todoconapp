@@ -1,16 +1,16 @@
 class TasksController < ApplicationController
-  before_action :set_board, only: [:show, :new, :create, :edit, :update, :destroy]
   before_action :set_task, only: [:show, :edit, :update]
-
   def show
   end
 
   def new
-    @task = @board.tasks.build
+    board = Board.find(params[:board_id])
+    @task = board.tasks.build
   end
 
   def create
-    @task = @board.tasks.build(task_params)
+    board = Board.find(params[:board_id])
+    @task = board.tasks.build(task_params)
     if @task.save
       redirect_to board_path(board), notice: 'Task added'
     else
@@ -24,7 +24,7 @@ class TasksController < ApplicationController
 
   def update
     if @task.update(task_params)
-      redirect_to board_task_path(@task), notice: 'Updated'
+      redirect_to board_task_path(board_id: @task.board.id, id: @task.id), notice: 'Updated'
     else
       flash.now[:error] = 'Not updated'
       render :edit
@@ -32,7 +32,10 @@ class TasksController < ApplicationController
   end
 
   def destroy
-
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:id])
+    task.destroy!
+    redirect_to board_path(board), notice: 'Deleted'
   end
 
   private
@@ -40,11 +43,7 @@ class TasksController < ApplicationController
     params.require(:task).permit(:name, :description, :eyecatch)
   end
 
-  def set_board
-    @board = Board.find(params[:board_id])
-  end
-
   def set_task
-    @task = @board.tasks.find(params[:id])
+    @task = Task.find(params[:id])
   end
 end
