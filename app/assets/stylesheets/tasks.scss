@@ -1,0 +1,18 @@
+@import 'variables';
+
+.task-title {
+  float: left;
+}
+
+.task-description {
+  font-size: $font-sm;
+  width: 100%;
+  padding: 20px 15px;
+  background-color: $form-color;
+  border-radius: 6px;
+  margin-bottom: 35px;
+}
+
+.task-comments {
+  font-weight: normal;
+}

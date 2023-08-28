@@ -1,0 +1,23 @@
+.container
+  %h2.title= @board.name
+  - @tasks.each do |task|
+    = link_to board_task_path(board_id: task.board.id, id: task.id) do
+      .card
+        - if task.eyecatch.attached?
+          .card-image
+            = image_tag task.eyecatch
+        .card-name.card-name-task
+          = task.name
+        .card-description
+          = task.description
+
+        = image_tag 'Users.png', class: 'card-avatar'
+        .card-comments
+          .card-comments-number
+            23
+          = image_tag 'message-square-outline.png', class: 'card-comments-image'
+        .card-after
+
+  = link_to new_board_task_path(@board) do
+    .new-card
+      %p.new-card-add + Add new card

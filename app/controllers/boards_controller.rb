@@ -1,7 +1,12 @@
 class BoardsController < ApplicationController
+  before_action :set_board, only: [:show]
   before_action :authenticate_user!, only: [:new, :create]
   def index
     @boards = Board.all
+  end
+
+  def show
+    @tasks = @board.tasks
   end
 
   def new
@@ -41,5 +46,9 @@ class BoardsController < ApplicationController
   private
   def board_params
     params.require(:board).permit(:name, :description)
+  end
+
+  def set_board
+    @board = Board.find(params[:id])
   end
 end

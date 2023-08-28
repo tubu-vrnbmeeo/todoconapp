@@ -2,10 +2,10 @@
   %h2.title All Boards
   - @boards.each do |board|
     = link_to board_path(board) do
-      .board
-        .board-name
-          = board.name
-        .board-actions
+      .card
+        = link_to board_path(board) do
+          .card-name= board.name
+        .card-actions
           - if user_signed_in? && current_user.has_written?(board)
             .dropdown
               = image_tag 'Combined Shape.png', class: 'dropbtn'
@@ -13,11 +13,11 @@
                 = link_to 'Edit', edit_board_path(board)
                 = link_to 'Delete', board_path(board), data: {method: 'delete', confirm: 'Are you sure you want to delete?'}
 
-        .board-description
+        .card-description
           = board.description
 
-        = image_tag 'Users.png', class: 'board-avatar'
+        = image_tag 'Users.png', class: 'card-avatar'
 
   = link_to new_board_path do
-    .new-board
-      %p.new-board-add + Add new board
+    .new-card
+      %p.new-card-add + Add new board

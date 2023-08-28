@@ -1,0 +1,15 @@
+.container
+  %h2.title.task-title= @task.name
+  .card-actions
+    .dropdown
+      = image_tag 'Combined Shape.png', class: 'dropbtn'
+      .dropdown-content
+        = link_to 'Edit', edit_board_task_path(board_id: @task.board.id, id: @task.id)
+        = link_to 'Delete', board_task_path(board_id: @task.board.id, id: @task.id), data: {method: 'delete', confirm: 'Are you sure you want to delete?'}
+  - if @task.eyecatch.attached?
+    .card-image.card-image-task
+      = image_tag @task.eyecatch
+  .task-description
+    = @task.description
+
+  %h2.title.task-comments Comment
