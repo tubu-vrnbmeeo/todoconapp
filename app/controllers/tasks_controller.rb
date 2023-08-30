@@ -1,6 +1,8 @@
 class TasksController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_task, only: [:show, :edit, :update]
   def show
+    @comments = @task.comments
   end
 
   def new
@@ -10,7 +12,7 @@ class TasksController < ApplicationController
 
   def create
     board = Board.find(params[:board_id])
-    @task = board.tasks.build(task_params)
+    @task = board.tasks.build(**task_params, user_id: current_user.id)
     if @task.save
       redirect_to board_path(board), notice: 'Task added'
     else
@@ -23,7 +25,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(task_params)
+    if @task.update(**task_params, user_id: current_user.id)
       redirect_to board_task_path(board_id: @task.board.id, id: @task.id), notice: 'Updated'
     else
       flash.now[:error] = 'Not updated'

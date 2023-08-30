@@ -1,0 +1,3 @@
+.container
+  %h2.title New Comment
+  = render 'form', model: @comment, url: board_task_comments_path(board_id: @comment.task.board.id, task_id: @comment.task.id)

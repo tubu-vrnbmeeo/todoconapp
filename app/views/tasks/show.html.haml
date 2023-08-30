@@ -13,3 +13,10 @@
     = @task.description
 
   %h2.title.task-comments Comment
+  - @comments.each do |comment|
+    .task-comment
+      = image_tag 'Users.png', class: 'task-comment-avatar'
+      %p.task-comment-content= comment.content
+  = link_to new_board_task_comment_path(board_id: @task.board.id, task_id: @task.id) do
+    .new-card
+      %p.new-card-add + Add new comment
