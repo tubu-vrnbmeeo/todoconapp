@@ -1,18 +1,36 @@
 @import 'variables';
 
-.task-title {
-  float: left;
-}
+.task{
+  &-title {
+    float: left;
+  }
+  
+  &-description {
+    font-size: $font-sm;
+    width: 100%;
+    padding: 20px 15px;
+    background-color: $form-color;
+    border-radius: 6px;
+    margin-bottom: 35px;
+  }
+  
+  &-comments {
+    font-weight: normal;
+  }
 
-.task-description {
-  font-size: $font-sm;
-  width: 100%;
-  padding: 20px 15px;
-  background-color: $form-color;
-  border-radius: 6px;
-  margin-bottom: 35px;
-}
+  &-comment {
+    display: flex;
+    margin-bottom: 32px;
 
-.task-comments {
-  font-weight: normal;
+    &-avatar {
+      width: 40px;
+      height: 40px;
+      margin-right: 16px;
+    }
+
+    &-content{
+      font-size: $font-sm;
+    }
+  }
+
 }
