@@ -34,6 +34,10 @@ class User < ApplicationRecord
     profile&.user_name || self.email.split('@').first
   end
 
+  def prepare_profile
+    profile || build_profile
+  end
+
   def avatar_image
     profile&.avatar || 'default-avatar.png'
   end

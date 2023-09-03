@@ -1,0 +1,11 @@
+@import 'variables';
+
+.profile {
+  &-user-name {
+    float: left;
+  }
+}
+
+.file-field {
+  margin-bottom: $form-mb;
+}
