@@ -9,5 +9,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resouce :profile, only: [:show, :edit, :update]
+  resource :profile, only: [:show, :edit, :update]
 end

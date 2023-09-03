@@ -29,4 +29,12 @@ class User < ApplicationRecord
   def has_written?(board)
     boards.exists?(id: board.id)
   end
+
+  def display_name
+    profile&.user_name || self.email.split('@').first
+  end
+
+  def avatar_image
+    profile&.avatar || 'default-avatar.png'
+  end
 end
