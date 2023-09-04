@@ -13,7 +13,7 @@ class TasksController < ApplicationController
 
   def create
     board = Board.find(params[:board_id])
-    @task = board.tasks.build(**task_params, user_id: current_user.id)
+    @task = board.tasks.build(task_params)
     if @task.save
       redirect_to board_path(board), notice: 'Task added'
     else
@@ -26,7 +26,7 @@ class TasksController < ApplicationController
   end
 
   def update
-    if @task.update(**task_params, user_id: current_user.id)
+    if @task.update(task_params)
       redirect_to board_task_path(board_id: @task.board.id, id: @task.id), notice: 'Updated'
     else
       flash.now[:error] = 'Not updated'
@@ -43,7 +43,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:name, :description, :eyecatch)
+    params.require(:task).permit(:name, :description, :eyecatch).merge(user_id: current_user.id)
   end
 
   def set_task
