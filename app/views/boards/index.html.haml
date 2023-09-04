@@ -16,7 +16,7 @@
         .card-description
           = board.description
 
-        = image_tag 'Users.png', class: 'card-avatar'
+        = image_tag board.user.avatar_image, class: 'card-avatar'
         .card-after
 
   = link_to new_board_path do

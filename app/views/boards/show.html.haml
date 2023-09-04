@@ -11,7 +11,7 @@
         .card-description
           = task.description
 
-        = image_tag 'Users.png', class: 'card-avatar'
+        = image_tag task.user.avatar_image, class: 'card-avatar'
         .card-comments
           .card-comments-number
             23

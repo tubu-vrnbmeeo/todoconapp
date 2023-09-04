@@ -14,7 +14,8 @@
       %p.header-home
         = link_to 'Boards', root_path
       .header-account
-        = image_tag 'default-avatar.png', class: 'header-avatar dropbtn'
+        = link_to profile_path do
+          = image_tag current_user.avatar_image, class: 'header-avatar dropbtn'
 
 
     - if flash.present?

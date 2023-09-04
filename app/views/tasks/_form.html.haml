@@ -3,7 +3,7 @@
     %li= message
 = form_with(model: model, url: url, local: true) do |f|
   %div
-    = f.label :eyecatch, 'アイキャッチ'
+    = f.label :eyecatch, 'アイキャッチ', class: 'label'
   %div 
     = f.file_field :eyecatch, class: 'eyecatch'
   %div

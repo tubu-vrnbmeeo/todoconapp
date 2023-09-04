@@ -1,0 +1,14 @@
+.container 
+  %h2.title Profile
+  .profile-image 
+    = image_tag current_user.avatar_image
+  .profile-user-name
+    = current_user.display_name
+  .card-actions.profile-actions
+    .dropdown
+      = image_tag 'Combined Shape.png', class: 'dropbtn'
+      .dropdown-content
+        = link_to 'Edit', edit_profile_path
+
+  .profile-introduction
+    = current_user.profile&.introduction
