@@ -51,6 +51,10 @@ $card-br: 6px;
     float: left;
   }
 
+  &-comment-avatar {
+    margin-left: -15px;
+  }
+
   &-comments {
     float: right;
     display: flex;

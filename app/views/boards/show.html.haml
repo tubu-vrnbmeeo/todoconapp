@@ -10,8 +10,9 @@
           = task.name
         .card-description
           = task.description
-
         = image_tag task.user.avatar_image, class: 'card-avatar'
+        - task.comments.each do |comment|
+          = image_tag comment.user.avatar_image, class: 'card-avatar card-comment-avatar'
         .card-comments
           .card-comments-number
             = task.comment_count
