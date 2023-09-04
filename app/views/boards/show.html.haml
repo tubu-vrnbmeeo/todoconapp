@@ -18,7 +18,7 @@
             = task.comment_count
           = image_tag 'message-square-outline.png', class: 'card-comments-image'
         .card-after
-
-  = link_to new_board_task_path(@board) do
-    .new-card
-      %p.new-card-add + Add new card
+  - if user_signed_in?
+    = link_to new_board_task_path(@board) do
+      .new-card
+        %p.new-card-add + Add new card

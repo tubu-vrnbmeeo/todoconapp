@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :set_task, only: [:show, :edit, :update]
+  before_action :set_task, only: [:edit, :update]
   def show
+    @task = Task.find(params[:id])
     @comments = @task.comments
   end
 
@@ -35,7 +36,7 @@ class TasksController < ApplicationController
 
   def destroy
     board = Board.find(params[:board_id])
-    task = board.tasks.find(params[:id])
+    task = current_user.tasks.find(params[:id])
     task.destroy!
     redirect_to board_path(board), notice: 'Deleted'
   end
@@ -46,6 +47,6 @@ class TasksController < ApplicationController
   end
 
   def set_task
-    @task = Task.find(params[:id])
+    @task = current_user.tasks.find(params[:id])
   end
 end

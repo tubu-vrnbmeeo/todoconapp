@@ -18,7 +18,7 @@
 
         = image_tag board.user.avatar_image, class: 'card-avatar'
         .card-after
-
-  = link_to new_board_path do
-    .new-card
-      %p.new-card-add + Add new board
+  - if user_signed_in?
+    = link_to new_board_path do
+      .new-card
+        %p.new-card-add + Add new board
