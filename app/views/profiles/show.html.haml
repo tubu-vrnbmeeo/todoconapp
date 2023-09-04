@@ -9,6 +9,7 @@
       = image_tag 'Combined Shape.png', class: 'dropbtn'
       .dropdown-content
         = link_to 'Edit', edit_profile_path
+        = link_to 'Log out', destroy_user_session_path, data: {method: 'delete', confirm: 'Log out?'}
 
   .profile-introduction
     = current_user.profile&.introduction

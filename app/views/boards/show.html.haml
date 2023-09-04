@@ -10,14 +10,15 @@
           = task.name
         .card-description
           = task.description
-
         = image_tag task.user.avatar_image, class: 'card-avatar'
+        - task.comments.each do |comment|
+          = image_tag comment.user.avatar_image, class: 'card-avatar card-comment-avatar'
         .card-comments
           .card-comments-number
-            23
+            = task.comment_count
           = image_tag 'message-square-outline.png', class: 'card-comments-image'
         .card-after
-
-  = link_to new_board_task_path(@board) do
-    .new-card
-      %p.new-card-add + Add new card
+  - if user_signed_in?
+    = link_to new_board_task_path(@board) do
+      .new-card
+        %p.new-card-add + Add new card

@@ -58,6 +58,11 @@ a {
     border-radius: 20px;
   }
 
+  &-login-button {
+    float: right;
+    line-height: 40px;
+  }
+
   &:after {
     content:"";
     display: block;

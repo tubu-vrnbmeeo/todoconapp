@@ -23,4 +23,8 @@ class Task < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true
+
+  def comment_count
+    comments.count
+  end
 end

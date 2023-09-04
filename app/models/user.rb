@@ -26,8 +26,12 @@ class User < ApplicationRecord
   has_many :tasks, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  def has_written?(board)
-    boards.exists?(id: board.id)
+  def has_written?(card)
+    if boards.include?(card)
+      boards.exists?(id: card.id)
+    elsif tasks.include?(card)
+      tasks.exists?(id: card.id)
+    end
   end
 
   def display_name
@@ -39,6 +43,10 @@ class User < ApplicationRecord
   end
 
   def avatar_image
-    profile&.avatar || 'default-avatar.png'
+    if profile&.avatar&.attached?
+      profile.avatar
+    else
+      'default-avatar.png'
+    end
   end
 end
